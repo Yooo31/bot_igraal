@@ -72,3 +72,10 @@ def start(shop) :
   accept_cookies()
   has_cashback()
 
+def index():
+  for actual_shop in shop_list:
+    print('Check for ' + actual_shop)
+    final_result.append(actual_shop + ' = ')
+    start(actual_shop)
+
+  return(answer_to_send)
