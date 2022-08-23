@@ -18,3 +18,21 @@ def accept_cookies():
 
   cookie_button = driver.find_element(By.ID, 'cookies-banner-btn-accept') # Find the button to accept cookies
   cookie_button.click()
+
+def has_cashback() :
+  print('start as cash_back')
+
+  try:
+    card = driver.find_element(By.XPATH, '//div[@data-ig-cashback-block]') # Find the card that contains the cashback
+
+    if card:
+      get_cashback()
+
+  except:
+    no_cashback()
+
+def get_cashback():
+  print('Cash back existant !')
+  time.sleep(4)
+  cash_back_value = driver.find_element(By.CLASS_NAME, "cashback_rate").text # Find the card that contains the cashback
+  existing_cashback(cash_back_value)
