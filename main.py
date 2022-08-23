@@ -36,3 +36,13 @@ def get_cashback():
   time.sleep(4)
   cash_back_value = driver.find_element(By.CLASS_NAME, "cashback_rate").text # Find the card that contains the cashback
   existing_cashback(cash_back_value)
+
+def existing_cashback(cash_back_value):
+  print(cash_back_value)
+  driver.close() # Close the browser
+  final_result.append(cash_back_value + ' / ')
+
+def no_cashback():
+  print('Non')
+  driver.close() # Close the browser
+  final_result.append('pas de cashback / ')
