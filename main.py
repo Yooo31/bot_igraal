@@ -46,3 +46,29 @@ def no_cashback():
   print('Non')
   driver.close() # Close the browser
   final_result.append('pas de cashback / ')
+
+def start(shop) :
+  chrome_options = Options()
+
+  # Options to run without interface
+
+  # chrome_options.add_argument("--no-sandbox")
+  # chrome_options.add_argument("--headless")
+
+  # Bypass the anti bot
+
+  chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+  chrome_options.add_experimental_option('useAutomationExtension', False)
+  chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+
+  # Create the driver
+
+  global driver
+  driver = webdriver.Chrome(executable_path="./chromedriver", options=chrome_options)
+
+  # Launch the process
+
+  open_shop(shop)
+  accept_cookies()
+  has_cashback()
+
