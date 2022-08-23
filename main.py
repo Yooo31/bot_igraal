@@ -9,10 +9,6 @@ shop_list = ['hetm', 'amazon', 'darty']
 global final_result
 final_result = []
 
-shop_list = ['hetm', 'amazon', 'darty']
-global final_result
-final_result = []
-
 def open_shop(shop=""):
   print('start open_shop')
 
