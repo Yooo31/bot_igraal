@@ -2,6 +2,12 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import time
+from fastapi import FastAPI
+
+app = FastAPI()
+shop_list = ['hetm', 'amazon', 'darty']
+global final_result
+final_result = []
 
 shop_list = ['hetm', 'amazon', 'darty']
 global final_result
@@ -72,10 +78,12 @@ def start(shop) :
   accept_cookies()
   has_cashback()
 
+@app.get("/igraal")
 def index():
   for actual_shop in shop_list:
     print('Check for ' + actual_shop)
     final_result.append(actual_shop + ' = ')
     start(actual_shop)
 
+  answer_to_send = ''.join(str(x) for x in final_result)
   return(answer_to_send)
