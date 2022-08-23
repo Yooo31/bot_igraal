@@ -13,3 +13,8 @@ def open_shop(shop=""):
   driver.get("https://fr.igraal.com/codes-promo/" + shop) # Go to the url of the shop
   time.sleep(20)
 
+def accept_cookies():
+  print('start cookies')
+
+  cookie_button = driver.find_element(By.ID, 'cookies-banner-btn-accept') # Find the button to accept cookies
+  cookie_button.click()
